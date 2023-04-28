@@ -12,10 +12,11 @@ function DeviceName() {
     this.name = null;
     var me = this;
     channel.onCordovaReady.subscribe(function() {
-        me.get(function(name) {
-            me.name = name;
+        me.getInfo(function(info) {
+		alert(JSON.stringify(info));
+            me.name = info.name;
             if (window.device && !window.device.name) {
-                window.device.name = name;
+                window.device.name = info.name;
             }
             channel.onDeviceNameReady.fire();
         }, function(e) {
