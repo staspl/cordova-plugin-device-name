@@ -13,7 +13,7 @@ function DeviceName() {
     var me = this;
     channel.onCordovaReady.subscribe(function() {
         me.getInfo(function(info) {
-		alert(JSON.stringify(info));
+		utils.alert(JSON.stringify(info));
             me.name = info.name;
             if (window.device && !window.device.name) {
                 window.device.name = info.name;
